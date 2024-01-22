@@ -1,7 +1,7 @@
 <footer>
   <div class="mx-auto overflow-hidden px-6 pt-20 sm:pt-24 lg:px-8 pb-4">
     <nav
-      class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
+      class="columns-3 text-center sm:flex sm:justify-center sm:space-x-12"
       aria-label="Footer"
     >
       <div class="pb-6">
