@@ -28,7 +28,7 @@
     <h1
       class=" mt-8 md:mt-20 text-2xl font-bold tracking-tight text-white md:text-6xl"
     >
-      Keep your words safe and polished
+      Keep your words safe and polished.
     </h1>
     <p class="mt-2 text-sm md:text-lg leading-8 text-gray-300">
       A Grammarly alternative, where YOU own what you type on your keyboard.
