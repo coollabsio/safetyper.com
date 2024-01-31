@@ -123,14 +123,14 @@
       </a>
     </div>
     <p class="mt-10 text-center text-sm">
-      Made with 💜 by <a
+      Made by <a
         class="underline text-warning"
         href="https://twitter.com/heyandras"
         target="_blank">Andras Bacsai</a
       >
     </p>
     <p class="text-center text-xs leading-5 text-gray-500">
-      &copy; 2022 coolLabs Technologies Bt. All rights reserved.
+      &copy; 2024 coolLabs Technologies Bt. All rights reserved.
     </p>
   </div>
 </footer>
