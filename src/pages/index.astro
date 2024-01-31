@@ -2,10 +2,42 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Index/Header.svelte";
 import Features from "../components/Index/Features.svelte";
-
 ---
 
 <Layout title="Safetyper">
-    <Header client:load/>
-    <Features/>
+    <div class="mx-auto text-center">
+        <div class="pt-20 space-y-2 tracking-tighter">
+            <h1
+                class="text-2xl font-bold tracking-tight text-white md:text-6xl"
+            >
+                Keep your words safe & polished<span class="text-warning"
+                    >.</span
+                >
+            </h1>
+        </div>
+        <h2 class="text-base pb-10 pt-2 text-neutral-400">
+            A Grammarly alternative, where YOU own what you type on your
+            keyboard.
+        </h2>
+        <div class="space-y-4">
+            <div class="pb-8">
+                <a
+                    href="https://store.coollabs.io/checkout/buy/bc0d0619-774e-401f-a63b-68e8c38cf1fa"
+                    class="text-base font-semibold rounded p-4 px-10 text-white bg-coollabs hover:bg-coollabs-100"
+                    >Let's type safely <span class="text-xs"
+                        >($19.99 - lifetime access)</span
+                    ></a
+                >
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <iframe
+            width="800"
+            height="420"
+            src="https://www.youtube.com/embed/I4tf_r2p4mM"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+        ></iframe>
+    </div>
+    <Features client:load />
 </Layout>
