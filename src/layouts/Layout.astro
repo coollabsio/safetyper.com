@@ -85,7 +85,6 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
-    <main class="max-w-6xl mx-auto flex-1 w-full">
       <header class="sticky top-0 z-50 bg-[rgba(16,16,16,0.8)] backdrop-blur-[12px] border-b border-[rgba(36,36,36,0.5)]">
       <nav class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         <a href="/">
@@ -316,6 +315,7 @@ const { title } = Astro.props;
         </a>
       </div>
       </header>
+    <main class="max-w-6xl mx-auto flex-1 w-full">
       <div class="text-center pt-12 md:pt-24">
         <slot />
       </div>
