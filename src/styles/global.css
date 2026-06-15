@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@phosphor-icons/web/duotone";
 
 @theme {
   --color-coollabs: #6B16ED;
