@@ -1,16 +1,21 @@
 ---
 import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "A Grammarly alternative, where YOU own what you type on your keyboard.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -54,160 +59,68 @@ const { title } = Astro.props;
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#ffc40d" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta
-      name="Description"
-      content="A Grammarly alternative, where YOU own what you type on your keyboard."
-    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="Description" content={description} />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@heyandras" />
-    <meta name="twitter:title" content="Safetyper" />
-    <meta
-      name="twitter:description"
-      content="A Grammarly alternative, where YOU own what you type on your keyboard."
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
       content="https://cdn.coollabs.io/og-images/safetyper.png"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://safetyper.com" />
-    <meta property="og:title" content="Safetyper" />
-    <meta
-      property="og:description"
-      content="A Grammarly alternative, where YOU own what you type on your keyboard."
-    />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Safetyper" />
     <meta
       property="og:image"
       content="https://cdn.coollabs.io/og-images/safetyper.png"
     />
     <title>{title}</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="min-h-screen flex flex-col antialiased leading-relaxed overflow-x-hidden">
-      <header class="sticky top-0 z-50 bg-[rgba(16,16,16,0.8)] backdrop-blur-[12px] border-b border-[rgba(36,36,36,0.5)]">
-      <nav class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2">
-          <img src="/android-launchericon-48-48.png" alt="Safetyper" class="w-6 h-6" />
-          <span class="text-xl block text-white font-bold tracking-tight">Safetyper</span>
-        </a>
-        <button
-          id="mobile-menu-button"
-          class="xl:hidden text-white p-2 rounded border-0 hover:bg-coolgray-200 transition-colors"
-        >
-          <i class="ph-duotone ph-list text-white text-2xl" aria-hidden="true"></i>
-        </button>
-        <div id="desktop-menu" class="hidden xl:flex items-center gap-1">
-          <a class="navbar-link relative gap-4" href="/philosophy">
-            <i class="ph-duotone ph-lightbulb text-warning text-xl" aria-hidden="true"></i>Philosophy</a
-          >
-          <a
-            class="navbar-link relative gap-2"
-            href="https://shop.coollabs.io?utm_source=coollabs"
-          >
-            <i class="ph-duotone ph-storefront text-warning text-xl" aria-hidden="true"></i>
-            Merch
-          </a>
-          <a class="navbar-link relative gap-4" href="/sponsorships">
-            <i class="ph-duotone ph-coins text-warning text-xl" aria-hidden="true"></i>Sponsor Us</a
-          >
-          <a class="navbar-link" href="https://coollabs.io/discord">
-          <svg
-        class="size-5 text-warning"
-        viewBox="0 0 256 256"
-        xmlns="http://www.w3.org/2000/svg"
-        ><g fill="currentColor"
-          ><path
-            d="m235.21 185.59l-67 29.7a8.15 8.15 0 0 1-11-4.56L147 183.06a190.5 190.5 0 0 1-19 .94a190.5 190.5 0 0 1-19-.94l-10.25 27.67a8.15 8.15 0 0 1-11 4.56l-67-29.7a8 8 0 0 1-4.55-9.24L45.77 60a8.08 8.08 0 0 1 6.54-6l36.06-5.92a8.1 8.1 0 0 1 9.21 6l5 19.63a192.32 192.32 0 0 1 50.88 0l5-19.63a8.1 8.1 0 0 1 9.21-6L203.69 54a8.08 8.08 0 0 1 6.54 6l29.53 116.37a8 8 0 0 1-4.55 9.22"
-            opacity=".2"></path><path
-            d="M104 140a12 12 0 1 1-12-12a12 12 0 0 1 12 12m60-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m74.45 64.9l-67 29.71a16.17 16.17 0 0 1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11 22a16.18 16.18 0 0 1-21.71 9.1l-67-29.71a15.94 15.94 0 0 1-9.06-18.51L38 58a16.08 16.08 0 0 1 13-11.87l36.06-5.92a16.21 16.21 0 0 1 18.26 11.88l3.26 12.83Q118.11 64 128 64t19.4.92l3.26-12.83a16.22 16.22 0 0 1 18.26-11.88L205 46.13A16.08 16.08 0 0 1 218 58l29.53 116.38a15.94 15.94 0 0 1-9.08 18.52M232 178.28L202.47 62h-.08l-36.06-6a.17.17 0 0 0-.17 0l-2.83 11.14c5 .94 10 2.06 14.83 3.42A8 8 0 0 1 176 86.31a8.09 8.09 0 0 1-2.16-.3A172.25 172.25 0 0 0 128 80a172.25 172.25 0 0 0-45.84 6a8 8 0 1 1-4.32-15.4c4.82-1.36 9.78-2.48 14.82-3.42L89.83 56a.21.21 0 0 0-.12 0l-36.1 5.92a.24.24 0 0 0-.09 0L24 178.33L91 208a.21.21 0 0 0 .22 0L98 189.72a173.2 173.2 0 0 1-20.14-4.32a8 8 0 0 1 4.3-15.4a171.85 171.85 0 0 0 45.84 6a171.85 171.85 0 0 0 45.84-6a8 8 0 0 1 4.32 15.41a173.2 173.2 0 0 1-20.16 4.31l6.75 18.28a.22.22 0 0 0 .21 0Z"
-          ></path></g
-        ></svg
-      >
-          Community <span id="community-count-mobile" class="text-xs">(20k+)</span>
-        </a>
-        </div>
-      </nav>
-      <div id="mobile-menu" class="hidden flex-col gap-1 px-4 pb-3">
-        <a class="navbar-link" href="/philosophy">
-          <i class="ph-duotone ph-lightbulb text-warning text-xl" aria-hidden="true"></i>
-          Philosophy
-        </a>
-        <a class="navbar-link" href="https://shop.coollabs.io?utm_source=coollabs">
-          <i class="ph-duotone ph-storefront text-warning text-xl" aria-hidden="true"></i>
-          Merch
-        </a>
-        <a class="navbar-link" href="/sponsorships">
-          <i class="ph-duotone ph-coins text-warning text-xl" aria-hidden="true"></i>
-          Sponsor Us
-        </a>
-        <a class="navbar-link" href="https://coollabs.io/discord">
-          <svg
-        class="size-5 text-warning"
-        viewBox="0 0 256 256"
-        xmlns="http://www.w3.org/2000/svg"
-        ><g fill="currentColor"
-          ><path
-            d="m235.21 185.59l-67 29.7a8.15 8.15 0 0 1-11-4.56L147 183.06a190.5 190.5 0 0 1-19 .94a190.5 190.5 0 0 1-19-.94l-10.25 27.67a8.15 8.15 0 0 1-11 4.56l-67-29.7a8 8 0 0 1-4.55-9.24L45.77 60a8.08 8.08 0 0 1 6.54-6l36.06-5.92a8.1 8.1 0 0 1 9.21 6l5 19.63a192.32 192.32 0 0 1 50.88 0l5-19.63a8.1 8.1 0 0 1 9.21-6L203.69 54a8.08 8.08 0 0 1 6.54 6l29.53 116.37a8 8 0 0 1-4.55 9.22"
-            opacity=".2"></path><path
-            d="M104 140a12 12 0 1 1-12-12a12 12 0 0 1 12 12m60-12a12 12 0 1 0 12 12a12 12 0 0 0-12-12m74.45 64.9l-67 29.71a16.17 16.17 0 0 1-21.71-9.1l-8.11-22q-6.72.45-13.63.46t-13.63-.46l-8.11 22a16.18 16.18 0 0 1-21.71 9.1l-67-29.71a15.94 15.94 0 0 1-9.06-18.51L38 58a16.08 16.08 0 0 1 13-11.87l36.06-5.92a16.21 16.21 0 0 1 18.26 11.88l3.26 12.83Q118.11 64 128 64t19.4.92l3.26-12.83a16.22 16.22 0 0 1 18.26-11.88L205 46.13A16.08 16.08 0 0 1 218 58l29.53 116.38a15.94 15.94 0 0 1-9.08 18.52M232 178.28L202.47 62h-.08l-36.06-6a.17.17 0 0 0-.17 0l-2.83 11.14c5 .94 10 2.06 14.83 3.42A8 8 0 0 1 176 86.31a8.09 8.09 0 0 1-2.16-.3A172.25 172.25 0 0 0 128 80a172.25 172.25 0 0 0-45.84 6a8 8 0 1 1-4.32-15.4c4.82-1.36 9.78-2.48 14.82-3.42L89.83 56a.21.21 0 0 0-.12 0l-36.1 5.92a.24.24 0 0 0-.09 0L24 178.33L91 208a.21.21 0 0 0 .22 0L98 189.72a173.2 173.2 0 0 1-20.14-4.32a8 8 0 0 1 4.3-15.4a171.85 171.85 0 0 0 45.84 6a171.85 171.85 0 0 0 45.84-6a8 8 0 0 1 4.32 15.41a173.2 173.2 0 0 1-20.16 4.31l6.75 18.28a.22.22 0 0 0 .21 0Z"
-          ></path></g
-        ></svg
-      >
-          Community <span id="community-count-mobile" class="text-xs">(20k+)</span>
-        </a>
-      </div>
-      </header>
-    <main class="max-w-6xl mx-auto flex-1 w-full">
-      <div class="text-center pt-12 md:pt-24">
+  <body class="flex min-h-screen flex-col overflow-x-hidden font-sans leading-relaxed text-fg antialiased">
+    <Navigation />
+    <main class="mx-auto w-full max-w-6xl flex-1">
+      <div class="pt-12 text-center md:pt-20">
         <slot />
       </div>
     </main>
+    <Footer />
     <style is:global>
       @reference "../styles/global.css";
 
       html {
-        font-family: "Inter", sans-serif;
-        background-color: #101010;
-        color: #fff;
+        background-color: var(--color-app);
+        color: var(--color-fg);
+        color-scheme: dark;
+        overflow-x: hidden;
       }
-      .navbar-link {
-        @apply text-white text-base hover:bg-coolgray-200 py-2 px-3 rounded flex items-center gap-2 transition-colors;
-      }
-      @media (max-width: 767px) {
-        .navbar-link {
-          @apply text-sm w-full text-left;
+      @supports (overflow-x: clip) {
+        html,
+        body {
+          overflow-x: clip;
         }
       }
-      .icon {
-        @apply w-6 h-6;
+      /* Green glow at the top, same shape as coollabs.io and the Coolify login page. */
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, color-mix(in oklab, var(--color-safetyper) 9%, transparent), transparent 34rem),
+          var(--color-app);
       }
-      .button {
-        @apply bg-coolgray-300 hover:bg-coolgray-400 text-white px-4 py-2 text-base font-semibold leading-6 rounded;
+      ::selection {
+        background: color-mix(in oklch, var(--color-safetyper) 45%, transparent);
       }
-
-      @font-face {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url("/fonts/inter-latin-ext.woff2") format("woff2");
-        unicode-range:
-          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-          U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      .navbar-link {
+        @apply flex h-8 items-center gap-2 rounded-md px-2.5 text-sm text-fg-dim transition-colors hover:bg-white/[0.06] hover:text-fg;
       }
-      @font-face {
-        font-family: "Inter";
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url("/fonts/inter-latin.woff2") format("woff2");
-        unicode-range:
-          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-          U+2212, U+2215, U+FEFF, U+FFFD;
+      @media (max-width: 639px) {
+        .navbar-link {
+          @apply h-9 w-full px-3 text-left;
+        }
       }
     </style>
 
@@ -215,18 +128,15 @@ const { title } = Astro.props;
       defer
       data-domain="safetyper.com"
       src="https://analytics.coollabs.io/js/script.tagged-events.js"></script>
-    <Footer />
 
     <script>
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
 
-      function toggleMobileMenu() {
+      mobileMenuButton?.addEventListener("click", () => {
         mobileMenu?.classList.toggle("hidden");
         mobileMenu?.classList.toggle("flex");
-      }
-
-      mobileMenuButton?.addEventListener("click", toggleMobileMenu);
+      });
 
       mobileMenu?.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
@@ -234,21 +144,6 @@ const { title } = Astro.props;
           mobileMenu?.classList.remove("flex");
         });
       });
-    </script>
-
-    <script>
-      fetch("https://raw.githubusercontent.com/coollabsio/coollabs-cdn/main/json/business.json")
-        .then((res) => res.json())
-        .then((data) => {
-          const el = document.getElementById("community-count");
-          const elMobile = document.getElementById("community-count-mobile");
-          if (data.discord) {
-            const text = `(${(data.discord / 1000).toFixed(0)}k+)`;
-            if (el) el.textContent = text;
-            if (elMobile) elMobile.textContent = text;
-          }
-        })
-        .catch(() => {});
     </script>
   </body>
 </html>

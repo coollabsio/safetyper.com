@@ -1,140 +1,140 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import ArrowRight from "reicon/icons/ArrowRight";
+import ArrowUpRight from "reicon/icons/ArrowUpRight";
+import Code from "reicon/icons/Code";
+import Devices from "reicon/icons/Devices";
+import HardDrive from "reicon/icons/HardDrive";
+import HeartHand from "reicon/icons/HeartHand";
+import Key from "reicon/icons/Key";
+import PenSparkle from "reicon/icons/PenSparkle";
+
+const features = [
+  {
+    icon: Key,
+    title: "Bring your own key",
+    description:
+      "Use your own OpenRouter or Groq API key. Your credentials stay on your device, never on our servers.",
+  },
+  {
+    icon: HardDrive,
+    title: "Local Ollama models",
+    description:
+      "Run models locally with Ollama for complete privacy. Your text never leaves your machine — no API calls, no cloud, fully offline.",
+    link: { href: "https://github.com/coollabsio/safetyper", label: "Setup guide" },
+  },
+  {
+    icon: Devices,
+    title: "Works everywhere",
+    description:
+      "Browser extension that works on any website — Gmail, Slack, Notion, social media, and more. Write better wherever you type.",
+  },
+  {
+    icon: PenSparkle,
+    title: "Grammar & spelling",
+    description:
+      "Real-time grammar, spelling, and punctuation corrections powered by AI. Catch mistakes as you type, not after you hit send.",
+  },
+  {
+    icon: Code,
+    title: "Open source",
+    description:
+      "Fully open source. Read every line, verify our claims, and contribute. No black boxes, no hidden logic.",
+    link: { href: "https://github.com/coollabsio/safetyper", label: "View on GitHub" },
+  },
+];
 ---
 
-<Layout title="Safetyper">
-  <h1 class="text-3xl font-bold tracking-tight text-white md:text-6xl px-4">
-    Keep your words safe & polished<span class="text-warning">.</span>
-  </h1>
-  <h2 class="text-base pt-2 text-neutral-400 px-4">
-    A Grammarly alternative, where YOU own what you type on your keyboard.
-  </h2>
-  <div class="pb-6 pt-4 text-xs flex gap-2 justify-center flex-row flex-wrap">
+<Layout title="Safetyper - Keep your words safe & polished">
+  <section id="install" class="scroll-mt-20 px-4">
     <a
-      class="hover:underline cursor-pointer text-white flex gap-2 items-center justify-center text-xs"
-      target="_blank"
-      href="https://twitch.tv/heyandras"
+      href="/philosophy"
+      class="inline-flex items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1 text-xs text-fg-dim ring-1 ring-hairline transition-colors hover:bg-white/[0.07] hover:text-fg"
     >
-      <i class="ph-duotone ph-twitch-logo text-purple-500 text-base" aria-hidden="true"></i>
+      <span class="size-1.5 rounded-full bg-safetyper-text"></span>
+      Free, open source, no investors. Read our philosophy
+      <Icon icon={ArrowRight} class="size-3.5" />
+    </a>
+    <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-balance text-fg md:text-6xl">
+      Keep your words safe & polished<span class="text-safetyper-text">.</span>
+    </h1>
+    <p class="mx-auto mt-5 max-w-xl text-base text-pretty text-fg-dim md:text-lg">
+      A Grammarly alternative, where YOU own what you type on your keyboard.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href="https://chromewebstore.google.com/detail/safetyper/jfgghgeieficifndgplklafkhajffghg"
+        target="_blank"
+        class="btn btn-primary btn-lg"
+      >
+        <img src="/icons/chrome.svg" alt="" class="size-4" />
+        Add to Chrome
+      </a>
+      <a
+        href="https://addons.mozilla.org/en-US/firefox/addon/safetyper/"
+        target="_blank"
+        class="btn btn-neutral btn-lg"
+      >
+        <img src="/icons/firefox.svg" alt="" class="size-4" />
+        Add to Firefox
+      </a>
+    </div>
+    <p class="mt-6 text-xs text-fg-faint">Usage-based subscription coming soon.</p>
+  </section>
 
-      Building in live-streams</a
-    >
-  </div>
-  <div class="pb-2 pt-2 flex justify-center text-center gap-6 px-4 flex-wrap">
-    <a
-      href="https://chromewebstore.google.com/detail/safetyper/jfgghgeieficifndgplklafkhajffghg"
-      target="_blank"
-      class="text-base font-semibold text-white hover:text-warning flex gap-2 items-center"
-    >
-      <img src="/icons/chrome.svg" alt="Chrome" class="h-6 w-6" />
-      Chrome</a
-    >
-    <a
-      href="https://addons.mozilla.org/en-US/firefox/addon/safetyper/"
-      target="_blank"
-      class="text-base font-semibold text-white hover:text-warning flex gap-2 items-center"
-    >
-      <img src="/icons/firefox.svg" alt="Firefox" class="h-6 w-6" />
-      Firefox</a
-    >
-  </div>
-  <p class="text-sm text-neutral-400 text-center pt-2">Usage-based subscription coming soon.</p>
+  <section id="features" class="mt-24 scroll-mt-20 px-4">
+    <p class="eyebrow">Features</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Better writing, without giving up your privacy
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      You choose the model. You keep the keys. Your text stays yours.
+    </p>
 
-  <div id="features" class="text-center text-4xl font-bold pt-10 text-white">
-    Features
-  </div>
-  <div
-    class="mx-auto mt-16 max-w-2xl sm:mt-14 lg:mt-14 lg:max-w-none text-left"
-  >
-    <dl
-      class="grid max-w-xl grid-cols-1 gap-x-8 px-4 gap-y-16 lg:max-w-none lg:grid-cols-2"
-    >
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-key text-warning text-2xl" aria-hidden="true"></i>
-          Bring Your Own Key
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Use your own OpenRouter or Groq API key. Your credentials stay
-            on your device, never on our servers.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-hard-drives text-warning text-2xl" aria-hidden="true"></i>
-          Local Ollama Models
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Run models locally with Ollama for complete privacy. Your text never
-            leaves your machine — no API calls, no cloud, fully offline.
-          </p>
-          <p class="mt-6">
-            <a
-              href="https://github.com/coollabsio/safetyper"
-              target="_blank"
-              class="text-sm font-semibold leading-6 text-warning hover:underline"
-              >Setup guide <span aria-hidden="true">→</span></a
-            >
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-devices text-warning text-2xl" aria-hidden="true"></i>
-          Works Everywhere
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Browser extension that works on any website — Gmail, Slack, Notion,
-            social media, and more. Write better wherever you type.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-text-aa text-warning text-2xl" aria-hidden="true"></i>
-          Grammar & Spelling
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Real-time grammar, spelling, and punctuation corrections powered by
-            AI. Catch mistakes as you type, not after you hit send.
-          </p>
-        </dd>
-      </div>
-      <div class="flex flex-col">
-        <dt class="flex items-center gap-x-3 text-xl text-white">
-          <i class="ph-duotone ph-git-branch text-warning text-2xl" aria-hidden="true"></i>
-          Open Source
-        </dt>
-        <dd
-          class="mt-4 flex flex-auto flex-col text-sm leading-6 text-neutral-400"
-        >
-          <p class="flex-auto">
-            Fully open source. Read every line, verify our claims, and
-            contribute. No black boxes, no hidden logic.
-          </p>
-          <p class="mt-6">
-            <a
-              href="https://github.com/coollabsio/safetyper"
-              target="_blank"
-              class="text-sm font-semibold leading-6 text-warning hover:underline"
-              >View on GitHub <span aria-hidden="true">→</span></a
-            >
-          </p>
-        </dd>
-      </div>
-    </dl>
-  </div>
+    <div class="mt-10 grid gap-4 text-left sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature) => (
+          <article class="card flex flex-col p-5 lg:last:col-span-2">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-safetyper/15 ring-1 ring-safetyper/40">
+              <Icon icon={feature.icon} class="size-5 text-safetyper-text" />
+            </div>
+            <h3 class="mt-4 text-base font-medium text-fg">{feature.title}</h3>
+            <p class="mt-2 text-sm text-fg-dim">{feature.description}</p>
+            {feature.link && (
+              <a
+                href={feature.link.href}
+                target="_blank"
+                class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-medium text-safetyper-text hover:underline hover:underline-offset-4"
+              >
+                {feature.link.label}
+                <Icon icon={ArrowUpRight} class="size-3.5" />
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="support" class="mt-28 scroll-mt-20 px-4">
+    <p class="eyebrow">Support</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      Free because of our sponsors
+    </h2>
+    <p class="mx-auto mt-3 max-w-xl text-sm text-fg-faint">
+      Safetyper is a <a href="https://coollabs.io?ref=safetyper" class="text-fg-dim underline decoration-fg-faint underline-offset-2 hover:decoration-fg">coolLabs</a>
+      project. No investors and no hidden logic. Sponsors keep it independent and open source.
+    </p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <a href="/sponsorships" class="btn btn-primary">
+        <Icon icon={HeartHand} class="size-4" />
+        Become a sponsor
+      </a>
+      <a href="/philosophy" class="btn btn-neutral">
+        Read our philosophy
+        <Icon icon={ArrowRight} class="size-4" />
+      </a>
+    </div>
+  </section>
 </Layout>
